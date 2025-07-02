@@ -11,6 +11,7 @@ import {
   IFrame,
   Website,
   LargeTitle,
+  ClickToReveal,
 } from "./slides/index.js";
 
 export const slideContent = [
@@ -47,16 +48,9 @@ export const slideContent = [
         {
           width: "70%",
           title: {
-            content: "Hi, I'm Cyd (cydstumpel.nl)",
+            content: "Hi, I'm Cyd",
             level: 2,
             classes: "large-heading",
-          },
-          pointer: {
-            text: "Find my students at <br>the fourth floor later!",
-            color: "var(--c-highlight)",
-            background: "var(--c-text)",
-            position: "center right",
-            classes: "fragment small-heading font-bold",
           },
           text: {
             content: `
@@ -78,6 +72,48 @@ export const slideContent = [
           I'm also a <b>freelance creative developer</b>, and a lot of my colleagues are too at the moment. Which gives us our students a unique perspective into the industry.
         </li>
       </ul>
+      `,
+    },
+  },
+  {
+    slideType: ClickToReveal,
+    transition: "concave",
+    data: {
+      size: 60,
+      revealFirst: false,
+      reveals: [
+        {
+          class: "zoom-in",
+          element: "<video src='/videos/broed.mp4' data-autoplay loop muted playsinline></video>",
+        },
+        {
+          class: "zoom-in",
+          element: "<video src='/videos/kota.mp4' data-autoplay muted loop playsinline></video>",
+        },
+        {
+          class: "zoom-in",
+          element: "<img src='/visdeurbel.jpeg' alt='Screenshot from visdeurbel.nl' />",
+        },
+        {
+          class: "zoom-in",
+          element: "<video src='/videos/fishdoorbell.mp4' data-autoplay playsinline></video>",
+        },
+      ],
+      titleTop: "Freelancer",
+      notes: `
+      <p>
+        A little bit about what I do; I try to use code to make the web more playful and engaging — mostly through animation. 
+      </p>
+      <p>
+        I've won several awards for my work, like for this website for creative events in Utrecht...
+      </p>
+      <p>
+        ...and this website for the 10 year anniversary of a British Company called Kota...
+      </p>
+      <p>
+        ...but my biggest all time flex is that I built the new Fish Doorbell website and it was featured on Last Week Tonight with John Oliver.
+      </p>
+     
       `,
     },
   },
@@ -323,6 +359,25 @@ export const slideContent = [
     },
   },
   {
+    slideType: Planning,
+    transition: "fade", // zoom, fade, slide, convex, concave, zoom-in, zoom-out, none
+    data: {
+      customPill: {
+        text: "EXPOSJOO",
+        color: "var(--c-highlight)",
+        background: "var(--c-text)",
+        position: "top left",
+      },
+      title: {
+        content: "Planning",
+        level: 1,
+        classes: "xlarge-heading",
+      },
+      progress: 1,
+      list: ["What is (modern) CSS?", "Scroll-driven animations", "View Transitions"],
+    }
+  },
+  {
     slideType: LargeTitle,
     transition: "fade", // zoom, fade, slide, convex, concave, zoom-in, zoom-out, none
     data: {
@@ -404,65 +459,6 @@ export const slideContent = [
     },
   },
   {
-    slideType: Code,
-    transition: "fade",
-    data: {
-      codeBlocks: [
-        {
-          language: "css",
-          code: `
-            .carousel {
-              animation-timeline: scroll(x);
-            }
-            .img {
-              animation-timeline: view();
-            }
-        `,
-          highlight: true,
-        },
-      ],
-      notes: `
-      <p>
-        At this moment there are two types of scroll based animations you can use in Chromium browsers; view- and scroll progress animations. 
-      </p>
-      <p>
-        In short: scroll progress timelines have start and end values that are based on the start and end position of the scrollable container (the body by default). 
-      </p>
-      <p>
-        And **view progress**' start and end values are determined by the element’s position in the viewport.
-      </p>
-      <p>
-        Scroll progress timelines are perfect for scrollable carousels, if that's your thing, and view progress timelines are great for everything else.
-      </p>
-      `,
-    },
-  },
-  {
-    slideType: Code,
-    transition: "fade",
-    data: {
-      codeBlocks: [
-        {
-          language: "css",
-          code: `
-          .parent {
-            view-timeline-name: --parent;
-          }
-          .child {
-            animation-timeline: --parent;
-          }
-          `,
-          highlight: true,
-        },
-      ],
-      notes: `
-      <p>
-        A very powerful feature of view progress timelines is the ability to animate elements using a parent element as the progress timeline.
-      </p>
-      `,
-    },
-  },
-  {
     slideType: IFrame,
     transition: "fade",
     data: {
@@ -499,62 +495,24 @@ export const slideContent = [
     },
   },
   {
-    slideType: TextColumns,
-    transition: "fade-in",
-    autoAnimate: true,
+    slideType: Planning,
+    transition: "fade", // zoom, fade, slide, convex, concave, zoom-in, zoom-out, none
     data: {
-      columns: [
-        {
-          width: "70%",
-          title: {
-            dataId: "title",
-            content: "<span>Works great</span> <span>👍</span>",
-            level: 2,
-            classes: "xlarge-heading",
-          },
-        },
-      ],
-      notes: `
-      Right? 
-      `,
-    },
+      customPill: {
+        text: "EXPOSJOO",
+        color: "var(--c-highlight)",
+        background: "var(--c-text)",
+        position: "top left",
+      },
+      title: {
+        content: "Planning",
+        level: 1,
+        classes: "xlarge-heading",
+      },
+      progress: 2,
+      list: ["What is (modern) CSS?", "Scroll-driven animations", "View Transitions"],
+    }
   },
-  {
-    slideType: TextColumns,
-    transition: "fade-out",
-    autoAnimate: true,
-    data: {
-      columns: [
-        {
-          width: "70%",
-          title: {
-            dataId: "title",
-            content: "<span>Works great</span> <span>as long as:</span>",
-            level: 2,
-            classes: "xlarge-heading",
-          },
-          text: {
-            content: `
-            <ul>
-              <li class="fragment">you’re animating HTML elements&nbsp;👍</li>
-              <li class="fragment">you want an animation to play every time&nbsp;👍</li>
-              <li class="fragment">you don’t need a scroll triggered animation&nbsp;👍</li>
-            </ul>
-            `,
-            classes: "small-heading",
-          },
-        },
-      ],
-      notes: `
-      <ul>
-        <li>as long as you’re animating HTML elements and not for example JavaScript stuff on the canvas.</li>
-        <li>as long as you want an animation to play every time you scroll past it</li>
-        <li>as long as you don’t need a scroll triggered animation, thats an animation that plays on a specific scroll position in stead of a percentage of the scroll.</li>
-      </ul>
-      `,
-    },
-  },
-  
   {
     slideType: LargeTitle,
     transition: "fade",
@@ -576,7 +534,7 @@ export const slideContent = [
     transition: "fade",
     data: {
       title: "Simple View Transitions",
-      url: "https://sidstumple.github.io/view-transitions/",
+      url: "https://cydstumpel.github.io/view-transitions/",
       ratio: "14.5/9",
       notes: `
       <p>
@@ -589,17 +547,12 @@ export const slideContent = [
     },
   },
   {
-    slideType: Website,
+    slideType: IFrame,
     transition: "fade",
     data: {
-      video: "/videos/rotgans.mp4",
-      ratio: "1452/884",
-      controls: {
-        "data-autoplay": true,
-        loop: true,
-        muted: true,
-        controls: true,
-      },
+      title: "Michiel Rotgans",
+      url: "https://9392e04bb1.nxcli.io/",
+      ratio: "14.5/9",
       notes: `
       <p>
         In its most complicated form we can do stuff like this. [example].
@@ -611,36 +564,6 @@ export const slideContent = [
         View transitions are basically animations between two states, this can be used for things like transitions between pages or filtering/sorting stuff for example.
       </p>
       `,
-    },
-  },
-  {
-    slideType: LargeTitle,
-    transition: "fade",
-    data: {
-      title: {
-        content: "SPAs & MPAs",
-        level: 2,
-        classes: "xlarge-heading",
-      },
-      notes: `  
-      <p>
-        View transitions used to be only available on SPAs (Single page apps), which are apps that handle routing (or changing pages) with JavaScript in stead of just links.
-      </p>
-      <p>
-        They are now also available on, what browsers call MPAs (Multiple Page Apps), or what we used to call them...
-      </p>
-      `,
-    },
-  },
-  {
-    slideType: LargeTitle,
-    transition: "fade",
-    data: {
-      title: {
-        content: "RFWs",
-        level: 2,
-        classes: "xlarge-heading",
-      },
     },
   },
   {
@@ -698,17 +621,6 @@ export const slideContent = [
         <li>And it transforms and cross fades between the two states.</li>
       </ol>
       `,
-    },
-  },
-  {
-    slideType: LargeTitle,
-    transition: "fade",
-    data: {
-      title: {
-        content: "<a href='https://sidstumple.github.io/view-transitions/'>example</a>",
-        level: 2,
-        classes: "xlarge-heading",
-      },
     },
   },
   {
@@ -863,47 +775,6 @@ export const slideContent = [
     }
   },
   {
-    slideType: Code,
-    transition: "fade",
-    autoAnimate: false,
-    data: {
-      codeBlocks: [
-        {
-          language: "html",
-          highlight: '',
-          code: `
-          <img src="example.jpg">
-          <img src="example.jpg">
-          <img src="example.jpg">
-          `,
-        },
-        {
-          language: "scss",
-          highlight: '1-8|2,',
-          code: `
-            img {
-              view-transition-name: match-element;
-              view-transition-class: image;
-            }
-
-            ::view-transition-old(.image) {
-              animation: none;
-            }
-          `,
-        },
-      ],
-      notes: `
-        <p>
-          But, even more exciting, for same-document view transitions we can now use match-element in chrome and then the browser figures stuff out itself.
-          <br> 
-          <strong>
-            Which means we don't have to set a unique view transition name anymore.
-          </strong>
-        </p>
-        `,
-    }
-  },
-  {
     slideType: IFrame,
     transition: "fade",
     data: {
@@ -916,10 +787,7 @@ export const slideContent = [
       },
       notes: `  
       <p>
-        But what <i>can</i> you do using view transitions?
-      </p>
-      <p>
-        We can use it to sort and filter items.
+        So I showed you page transitions before and some filtering and sorting examples, here's a quite basic example of a sorting and filtering example.
       </p>
       <p>
         vt name
@@ -929,6 +797,24 @@ export const slideContent = [
       </p>
       `
     }
+  },
+  {
+    slideType: IFrame,
+    transition: "fade",
+    data: {
+      title: "CSS Day",
+      url: "https://cydstumpel.github.io/view-transitions/css-day/",
+      ratio: "14.5/9",
+    },
+  },
+  {
+    slideType: IFrame,
+    transition: "fade",
+    data: {
+      title: "CSS Day",
+      url: "https://cydstumpel.github.io/view-transitions/beyond-tellerrand/",
+      ratio: "14.5/9",
+    },
   },
   {
     slideType: LargeTitle,
@@ -941,7 +827,7 @@ export const slideContent = [
       },
       notes: `
       <p>
-        So, I've shown you a lot of cool stuff that's coming to CSS, but is it production ready?
+        So, I've shown you a lot of cool stuff, but is it production ready?
       </p>
       <p>
         Well, it depends, people often think that for a feature to be production ready, it needs to be supported by all major browsers.
@@ -990,8 +876,43 @@ export const slideContent = [
     <p>
       And here's a way to check with CSS if a feature is supported, you can use the @supports rule. You can use it to only add the animation if the browser supports it, so it won't just play, although playing it once is sometimes also a fine animation.
     </p>
+    <p>
+      CSS is getting more and more powerful, but it's also getting more and more complicated. So keeping up with everything can be a challenge, a good way to do so is to follow newsletters like CSS tricks, follow people on bluesky or mastodon that work on the specs like Bramus van Damme and Miriam Suzanne.
+    </p>
     `
   },
-  
+  {
+    slideType: PhotoCollage,
+    transition: "fade",
+    data: {
+      customPill: {
+        text: "WE ❤️ WEB",
+        color: "var(--c-text)",
+        background: "var(--c-highlight)",
+        position: "top left",
+      },
+      caption: "🔗 <a href='https://weloveweb.fdnd.nl'>weloveweb.fdnd.nl</a>",
+      captionPosition: "center center",
+      images: [
+        {
+          type: 'image',
+          src: "/weloveweb/weloveweb1.jpg",
+        },
+        {
+          type: 'image',
+          src: "/weloveweb/weloveweb2.jpeg",
+        },
+        {
+          type: 'image',
+          src: "/weloveweb/weloveweb3.jpeg",
+        },
+        {
+          type: 'image',
+          src: "/weloveweb/weloveweb4.jpeg",
+        },
+      ]
+    }
+  }
+
 ];
 

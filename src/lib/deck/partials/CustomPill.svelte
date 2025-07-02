@@ -11,3 +11,9 @@
   {data.text}
 </span>
 
+
+<style>
+  .pill {
+    z-index: 11;
+  }
+</style>

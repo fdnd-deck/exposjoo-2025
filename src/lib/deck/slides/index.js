@@ -7,3 +7,4 @@ export { default as Code } from "./Code.svelte";
 export { default as IFrame } from "./IFrame.svelte";
 export { default as Website } from "./Website.svelte";
 export { default as LargeTitle } from "./LargeTitle.svelte";
+export { default as ClickToReveal } from "./ClickToReveal.svelte";
