@@ -1,5 +1,6 @@
 import { baseData } from "$lib/deck/base-data";
 import Notes from "./partials/Notes.svelte";
+import { base } from "$app/paths";
 
 import {
   Cover,
@@ -84,19 +85,19 @@ export const slideContent = [
       reveals: [
         {
           class: "zoom-in",
-          element: "<video src='/videos/broed.mp4' data-autoplay loop muted playsinline></video>",
+          element: "<video src='{base}/videos/broed.mp4' data-autoplay loop muted playsinline></video>",
         },
         {
           class: "zoom-in",
-          element: "<video src='/videos/kota.mp4' data-autoplay muted loop playsinline></video>",
+          element: "<video src='{base}/videos/kota.mp4' data-autoplay muted loop playsinline></video>",
         },
         {
           class: "zoom-in",
-          element: "<img src='/visdeurbel.jpeg' alt='Screenshot from visdeurbel.nl' />",
+          element: "<img src='{base}/visdeurbel.jpeg' alt='Screenshot from visdeurbel.nl' />",
         },
         {
           class: "zoom-in",
-          element: "<video src='/videos/fishdoorbell.mp4' data-autoplay playsinline></video>",
+          element: "<video src='{base}/videos/fishdoorbell.mp4' data-autoplay playsinline></video>",
         },
       ],
       titleTop: "Freelancer",
@@ -212,7 +213,7 @@ export const slideContent = [
     data: {
       ratio: "2984/1848",
       image: {
-        url: "/hva.jpeg",
+        url: "{base}/hva.jpeg",
         alt: "HvA",
       },
       notes: `
@@ -227,7 +228,7 @@ export const slideContent = [
     data: {
       ratio: "2984/1848",
       image: {
-        url: "/hva-no-css.jpeg",
+        url: "{base}/hva-no-css.jpeg",
         alt: "HvA",
       },
       notes: `
@@ -605,7 +606,7 @@ export const slideContent = [
     slideType: Website,
     transition: "fade",
     data: {
-      video: "/videos/vt-simple.mp4",
+      video: "{base}/videos/vt-simple.mp4",
       ratio: "16/9",
       controls: {
         loop: true,
@@ -627,7 +628,7 @@ export const slideContent = [
     slideType: Website,
     transition: "fade",
     data: {
-      video: "/videos/vt-hard.mp4",
+      video: "{base}/videos/vt-hard.mp4",
       ratio: "16/9",
       controls: {
         loop: true,
@@ -896,19 +897,19 @@ export const slideContent = [
       images: [
         {
           type: 'image',
-          src: "/weloveweb/weloveweb1.jpg",
+          src: "{base}/weloveweb/weloveweb1.jpg",
         },
         {
           type: 'image',
-          src: "/weloveweb/weloveweb2.jpeg",
+          src: "{base}/weloveweb/weloveweb2.jpeg",
         },
         {
           type: 'image',
-          src: "/weloveweb/weloveweb3.jpeg",
+          src: "{base}/weloveweb/weloveweb3.jpeg",
         },
         {
           type: 'image',
-          src: "/weloveweb/weloveweb4.jpeg",
+          src: "{base}/weloveweb/weloveweb4.jpeg",
         },
       ]
     }
